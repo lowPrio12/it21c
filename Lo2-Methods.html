@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Object Oriented - Topic 2 - Methods</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<Style>
-    body {
-        font-family:'Roboto', sans-serif;
-    }
-</Style>
+    <Style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </Style>
 </head>
+
 <body>
     <h1>Topic 2 - Methods</h1>
     <h1 id="persona"></h1>
@@ -32,7 +34,18 @@
                 console.log("Gender: " + this.gender);
                 console.log("Hobby: " + this.hobby);
             }
+            // Method to display person information in the HTML
+            displayInfoHTML() {
+                const personElement = document.getElementById('persona');
+                personElement.innerHTML = `
+            <strong>Name:</strong> ${this.name}<br>
+            <strong>Age:</strong> ${this.age}<br>
+            <strong>Gender:</strong> ${this.gender}<br>
+            <strong>Hobby:</strong> ${this.hobby}
+            `;
+            }
         }
     </script>
 </body>
+
 </html>
