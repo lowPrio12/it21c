@@ -17,12 +17,9 @@
     <h1>Topic 4 - Inheritance</h1>
     <h3 id="persona"></h3>
 
-
     <script>
-
         class Person {
-
-            //Private Fields
+            // Private Fields
             #name;
             #age;
             #occupation;
@@ -35,7 +32,7 @@
                 this.#hobby = hobby;
             }
 
-            //Getters
+            // Getters
             get name() {
                 return this.#name;
             }
@@ -47,6 +44,7 @@
             get occupation() {
                 return this.#occupation;
             }
+
             get hobby() {
                 return this.#hobby;
             }
@@ -63,13 +61,14 @@
             displayInfoHTML() {
                 const personElement = document.getElementById('persona');
                 personElement.innerHTML = `
-                <strong>Name:</strong> ${this.name}<br>
-                <strong>Age:</strong> ${this.age}<br>
-                <strong>Occupation:</strong> ${this.occupation}
-                <strong>Hobby:</strong> ${this.hobby}
-            `;
+                    <strong>Name:</strong> ${this.name}<br>
+                    <strong>Age:</strong> ${this.age}<br>
+                    <strong>Occupation:</strong> ${this.occupation}<br>
+                    <strong>Hobby:</strong> ${this.hobby}
+                `;
             }
         }
+
         class Student extends Person {
             constructor(name, age, occupation, hobby, major) {
                 super(name, age, occupation, hobby);
@@ -89,13 +88,13 @@
                 personElement.innerHTML += `<br><strong>Major:</strong> ${this.major}`;
             }
         }
+
         // Creating an instance of the Student class
-        const students = new students('Jacob Israel A. Ranin Jr.', 23, 'Student', 'Read Comics', 'Information Technology');
+        const student = new Student('Jacob Israel A. Ranin Jr.', 20, 'Student', 'Read Comics', 'Information Technology');
 
         // Calling methods
-        students.displayInfo();
-        students.displayInfoHTML();
-
+        student.displayInfo();
+        student.displayInfoHTML();
     </script>
 </body>
 
