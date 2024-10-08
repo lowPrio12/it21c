@@ -49,3 +49,9 @@ class Person {
         `;
     }
 }
+
+// Creating an object (instance) of the Person class
+const personOne = new Person('Jacob Israel A. Ranin Jr.', 20, 'Male', 'Read comics and explore');
+
+// Calling methods
+personOne.displayInfo();
