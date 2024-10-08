@@ -55,6 +55,7 @@
                 console.log("Name: " + this.name);
                 console.log("Age: " + this.age);
                 console.log("Occupation: " + this.occupation);
+                console.log("Occupation: " + this.hobby);
             }
 
             // Method to display person information in the HTML
@@ -64,8 +65,28 @@
                 <strong>Name:</strong> ${this.name}<br>
                 <strong>Age:</strong> ${this.age}<br>
                 <strong>Occupation:</strong> ${this.occupation}
+                <strong>Occupation:</strong> ${this.hobby}
             `;
             }
+        }
+        class Student extends Person {
+        constructor(name, age, occupation, hobby, major) {
+            super(name, age, occupation, hobby);
+            this.major = major;
+        }
+
+        // Overriding the displayInfo method
+        displayInfo() {
+            super.displayInfo();
+            console.log("Major: " + this.major);
+        }
+
+        // Extending the displayInfoHTML method
+        displayInfoHTML() {
+            super.displayInfoHTML();
+            const personElement = document.getElementById('personOne');
+            personElement.innerHTML += `<br><strong>Major:</strong> ${this.major}`;
+        }
         }
 
     </script>
