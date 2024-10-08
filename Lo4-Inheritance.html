@@ -15,6 +15,7 @@
 
 <body>
     <h1>Topic 4 - Inheritance</h1>
+    <h3 id="persona"></h3>
 
 
     <script>
@@ -27,7 +28,7 @@
             #occupation;
             #hobby;
 
-            constructor(name, age, occupation) {
+            constructor(name, age, occupation, hobby) {
                 this.#name = name;
                 this.#age = age;
                 this.#occupation = occupation;
@@ -55,39 +56,45 @@
                 console.log("Name: " + this.name);
                 console.log("Age: " + this.age);
                 console.log("Occupation: " + this.occupation);
-                console.log("Occupation: " + this.hobby);
+                console.log("Hobby: " + this.hobby);
             }
 
             // Method to display person information in the HTML
             displayInfoHTML() {
-                const personElement = document.getElementById('personOne');
+                const personElement = document.getElementById('persona');
                 personElement.innerHTML = `
                 <strong>Name:</strong> ${this.name}<br>
                 <strong>Age:</strong> ${this.age}<br>
                 <strong>Occupation:</strong> ${this.occupation}
-                <strong>Occupation:</strong> ${this.hobby}
+                <strong>Hobby:</strong> ${this.hobby}
             `;
             }
         }
         class Student extends Person {
-        constructor(name, age, occupation, hobby, major) {
-            super(name, age, occupation, hobby);
-            this.major = major;
-        }
+            constructor(name, age, occupation, hobby, major) {
+                super(name, age, occupation, hobby);
+                this.major = major;
+            }
 
-        // Overriding the displayInfo method
-        displayInfo() {
-            super.displayInfo();
-            console.log("Major: " + this.major);
-        }
+            // Overriding the displayInfo method
+            displayInfo() {
+                super.displayInfo();
+                console.log("Major: " + this.major);
+            }
 
-        // Extending the displayInfoHTML method
-        displayInfoHTML() {
-            super.displayInfoHTML();
-            const personElement = document.getElementById('personOne');
-            personElement.innerHTML += `<br><strong>Major:</strong> ${this.major}`;
+            // Extending the displayInfoHTML method
+            displayInfoHTML() {
+                super.displayInfoHTML();
+                const personElement = document.getElementById('persona');
+                personElement.innerHTML += `<br><strong>Major:</strong> ${this.major}`;
+            }
         }
-        }
+        // Creating an instance of the Student class
+        const students = new students('Jacob Israel A. Ranin Jr.', 23, 'Student', 'Read Comics', 'Information Technology');
+
+        // Calling methods
+        students.displayInfo();
+        students.displayInfoHTML();
 
     </script>
 </body>
