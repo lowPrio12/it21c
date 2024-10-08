@@ -16,7 +16,7 @@
 
 <body>
     <h1>Topic 3 - Access Modifiers and Encapsulation</h1>
-
+<h3 id="persona"></h3>
 
     <script>
         class Person {
@@ -61,7 +61,7 @@
 
             // Method to display person information in the HTML
             displayInfoHTML() {
-                const personElement = document.getElementById('personOne');
+                const personElement = document.getElementById('persona');
                 personElement.innerHTML = `
             <strong>Name:</strong> ${this.name}<br>
             <strong>Age:</strong> ${this.age}<br>
@@ -70,9 +70,13 @@
             `;
             }
         }
+
+        // Creating an object (instance) of the Person class
+        const persona = new Person('Jacob Israel A. Ranin Jr.', 20, 'Male', 'Read comics and explore');
+
           // Calling methods
-          personOne.displayInfo();
-        personOne.displayInfoHTML();
+          persona.displayInfo();
+        persona.displayInfoHTML();
 </script>
 </body>
 
