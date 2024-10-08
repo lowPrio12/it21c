@@ -29,4 +29,13 @@ class Person {
         console.log("Age: " + this.age);
         console.log("Occupation: " + this.occupation);
     }
+     // Method to display person information in the HTML
+     displayInfoHTML() {
+        const personElement = document.getElementById('personOne');
+        personElement.innerHTML = `
+            <strong>Name:</strong> ${this.name}<br>
+            <strong>Age:</strong> ${this.age}<br>
+            <strong>Occupation:</strong> ${this.occupation}
+        `;
+    }
 }
