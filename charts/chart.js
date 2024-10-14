@@ -63,5 +63,43 @@ class LineChart extends ChartCreator {
     }
 }
 
+class BarChart extends ChartCreator {
+    constructor(dataUrl) {
+        super(dataUrl);
+        this.barCtx = document.getElementById('barChart');
+    }
+
+    createCharts() {
+        this.createBarChart();
+    }
+
+    createBarChart() {
+        new Chart(this.barCtx, {
+            type: 'bar',
+            data: {
+                labels: this.chartData.labels,
+                datasets: [{
+                    label: '# of Votes',
+                    data: this.chartData.data,
+                    backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+}
+
+// Initialize the charts
 const lineChartCreator = new LineChart('data.json');
 lineChartCreator.init();
+
+const barChartCreator = new BarChart('data.json');
+barChartCreator.init();
