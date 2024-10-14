@@ -10,6 +10,7 @@ class ChartCreator {
             this.createCharts();
         }
     }
+
     async fetchData() {
         try {
             const response = await fetch(this.dataUrl);
@@ -23,9 +24,44 @@ class ChartCreator {
     }
 
     createCharts() {
-        // This method will be overridden in subclasses
         throw new Error('createCharts() must be implemented in subclasses');
     }
 }
 
+class LineChart extends ChartCreator {
+    constructor(dataUrl) {
+        super(dataUrl);
+        this.areaCtx = document.getElementById('areaChart');
+    }
 
+    createCharts() {
+        this.createAreaChart();
+    }
+
+    createAreaChart() {
+        new Chart(this.areaCtx, {
+            type: 'line',
+            data: {
+                labels: this.chartData.labels,
+                datasets: [{
+                    label: '# of Votes',
+                    data: this.chartData.data,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: true,
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+}
+
+const lineChartCreator = new LineChart('data.json');
+lineChartCreator.init();
